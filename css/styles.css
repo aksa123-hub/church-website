@@ -41,7 +41,7 @@ body {
     height: 60vh;
     min-height: 450px;
     background-color: rgb(106, 71, 96); /* TEST - should show red if no image */
-    background-image: url('/assets/churchmain.jpg');
+    background-image: url('assets/churchmain.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
