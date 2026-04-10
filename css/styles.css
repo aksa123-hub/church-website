@@ -41,7 +41,7 @@ body {
     height: 60vh;
     min-height: 450px;
     background-color: rgb(106, 71, 96); /* TEST - should show red if no image */
-    background-image: url('..assets/churchmain.jpg');
+    background-image: url('../assets/churchmain.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -454,17 +454,345 @@ body {
     text-align: justify;
 }
 
-/* Responsive */
+
+    /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 968px) {
+    .hero {
+        height: 60vh;
+        min-height: 400px;
+    }
+    
+    .church-name {
+        font-size: 2rem;
+    }
+    
+    .church-location {
+        font-size: 1.2rem;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: rgba(92, 11, 31, 0.98);
+        width: 100%;
+        text-align: center;
+        transition: 0.4s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.3);
+        padding: 30px 0;
+        gap: 0;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-menu li {
+        padding: 15px 0;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        opacity: 0;
+        visibility: hidden;
+        max-height: 0;
+        transform: translateY(0);
+        box-shadow: none;
+        background: rgba(139, 21, 56, 0.95);
+        margin-top: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+        padding: 0;
+    }
+    
+    .dropdown-menu.mobile-active {
+        opacity: 1;
+        visibility: visible;
+        max-height: 600px;
+        padding: 15px 0;
+    }
+    
+    .dropdown-menu a {
+        padding: 14px 35px;
+        font-size: 0.95rem;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    }
+    
+    .dropdown-menu a:hover {
+        padding-left: 45px;
+    }
+    
+    .dropdown-menu li:last-child a {
+        border-bottom: none;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(8px, -8px);
+    }
+    
+    /* FIX 1: About Us Section - Stack vertically */
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .about-image {
+        order: 1;
+    }
+    
+    .about-text {
+        order: 2;
+    }
+    
+    .about-image img {
+        height: 350px;
+        width: 100%;
+    }
+    
+    /* FIX 2: Church History - Stack vertically */
     .history-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .history-image {
+        order: 1;
+    }
+    
+    .history-text {
+        order: 2;
+    }
+    
+    .history-image img {
+        height: 350px;
+        width: 100%;
+    }
+    
+    /* FIX 3: Vicar Section - Stack vertically */
+    .vicar-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .vicar-image-container {
+        order: 1;
+    }
+    
+    .vicar-info {
+        order: 2;
+        padding: 30px 20px;
+    }
+    
+    .vicar-image {
+        height: 400px;
+        width: 100%;
+    }
+    
+    .vicar-details {
+        grid-template-columns: 1fr;
+    }
+    
+    /* FIX 4: Office Bearers */
+    .bearers-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .bearer-image {
+        height: 300px;
+    }
+    
+    /* FIX 5: Spiritual Organizations - Stack and fix image size */
+    .org-card {
+        grid-template-columns: 1fr;
+        padding: 30px 20px;
+        gap: 25px;
+    }
+    
+    .org-card .org-image {
+        order: 1;
+        width: 100%;
+    }
+    
+    .org-card .org-content {
+        order: 2;
+    }
+    
+    .org-image img {
+        height: 250px;
+        width: 100%;
+        object-fit: cover;
+    }
+    
+    /* FIX 6: Contact Section */
+    .contact-content {
         grid-template-columns: 1fr;
         gap: 40px;
     }
     
-    .history-image img {
-        height: 400px;
+    .contact-map {
+        order: 2;
+    }
+    
+    .contact-info {
+        order: 1;
+    }
+    
+    /* FIX 7: Gallery Categories */
+    .gallery-categories {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .category-image {
+        height: 250px;
+    }
+    
+    /* FIX 8: Subgallery Grid */
+    .subgallery-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .subgallery-item img {
+        height: 250px;
+        width: 100%;
+        object-fit: cover;
+    }
+    
+    .subgallery-container {
+        margin: 20px auto;
+        padding: 20px 15px;
+    }
+    
+    .subgallery-close {
+        width: 45px;
+        height: 45px;
+        font-size: 2rem;
+        top: -10px;
+        right: 5px;
+    }
+    
+    .subgallery-title {
+        font-size: 2rem;
+        padding-right: 50px;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
     }
 }
+
+@media (max-width: 600px) {
+    .church-name {
+        font-size: 1.8rem;
+    }
+    
+    .church-location {
+        font-size: 1.1rem;
+    }
+    
+    .logo-img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .section {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .home-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    /* About section */
+    .about-image img {
+        height: 280px;
+    }
+    
+    .about-text p {
+        font-size: 1.05rem;
+    }
+    
+    /* History section */
+    .history-image img {
+        height: 280px;
+    }
+    
+    .history-text p {
+        font-size: 1.05rem;
+    }
+    
+    /* Vicar section */
+    .vicar-image {
+        height: 320px;
+    }
+    
+    .vicar-name {
+        font-size: 1.8rem;
+    }
+    
+    /* Office Bearers */
+    .bearers-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .bearer-image {
+        height: 280px;
+    }
+    
+    /* Organizations */
+    .org-card {
+        padding: 25px 15px;
+    }
+    
+    .org-image img {
+        height: 220px;
+    }
+    
+    .org-content h3 {
+        font-size: 1.6rem;
+    }
+    
+    /* Gallery */
+    .gallery-categories {
+        grid-template-columns: 1fr;
+    }
+    
+    .category-image {
+        height: 220px;
+    }
+    
+    .subgallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .subgallery-item img {
+        height: 220px;
+    }
+    
+    .subgallery-title {
+        font-size: 1.6rem;
+    }
+}
+
 
 @media (max-width: 600px) {
     .history-image img {
@@ -551,11 +879,16 @@ body {
 }
 
 .org-image img {
+   
     width: 100%;
     height: 350px;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    background: var(--cream);
+    padding: 10px;
+
 }
 
 /* ===== GALLERY SECTION ===== */

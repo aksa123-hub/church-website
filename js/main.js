@@ -328,18 +328,18 @@ const galleryData = {
         
         // Add more achievements...
     ],
-    churchimages: [
+    church_images: [
         { img: 'assets/churchmain.jpg', title: 'Our Church', caption: 'Recreated > 2011' },
         { img: 'assets/church4.jpg', title: 'Interior', caption: 'The faithful gathered in prayer during the Holy Qurbana' },
-        { img: 'assets/Gallery/Church images/madbaha.jpg', title: 'Madbaha', caption: 'The Holy Madbaha, the most sacred space of the church where the Holy Qurbana is celebrated.' },
-        { img: 'assets/Gallery/Church images/chur3.jpeg', title: 'Old Church', caption: 'Constructed > 1968-1969' },
-        { img: 'assets/Gallery/Church images/rec.jpeg', title: 'Record of Church Consecration', caption: '' },
+        { img: 'assets/Gallery/Church_images/madbaha.jpg', title: 'Madbaha', caption: 'The Holy Madbaha, the most sacred space of the church where the Holy Qurbana is celebrated.' },
+        { img: 'assets/Gallery/Church_images/chur3.jpeg', title: 'Old Church', caption: 'Constructed > 1968-1969' },
+        { img: 'assets/Gallery/Church_images/rec.jpeg', title: 'Record of Church Consecration', caption: '' },
         // Add more programmes...
     ],
     Kurishady: [
         { img: 'assets/gallery/Kurisady/kurisady1.png', title: 'Kurishady at Western side', caption:''},
         { img: 'assets/gallery/Kurisady/kurisady2.jpg', title: 'Kurishady within Church premise', caption:'' },
-        { img: 'assets/gallery/Kurisady/kurisady3.png', title: 'Kurishady at Wastern side', caption:''},
+        { img: 'assets/gallery/Kurisady/kurisady3.png', title: 'Kurishady at Eastern side', caption:''},
         
         // Add more meetings...
     ],
@@ -365,7 +365,7 @@ const galleryData = {
 const categoryTitles = {
     events: 'Events',
     achievements: 'Achievements',
-    churchimages: 'Church Images',
+    church_images: 'Church Images',
     Kurishady: 'Kurishady',
     PalliPerunnal: 'Palli Perunnal',
     services: 'Church Services'
