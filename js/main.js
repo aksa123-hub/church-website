@@ -323,8 +323,8 @@ const galleryData = {
         // Add more events...
     ],
     achievements: [
-        { img: 'assets/Gallery/Achievements/ach1.jpg.jpeg', title: 'Overall Championship', caption: 'Our Samajam members secured first place with 65 points and won the Ever Rolling Trophy at the 2025 Kalamalsaram  of the Martha Mariam Vanitha Samajam, Thevalakkara Group, held at St. Gregorios Orthodox Church, Idakkulangara, on 05 October 2025.' },
-        { img: 'assets/Gallery/Achievements/ach2.jpg.jpeg', title: 'Youth Achievement', caption: 'Our members of the youth movement won the Overall Championship with 72 points at Arangu 2025, the Kollam Diocese Youth Arts Festival.' },
+        { img: 'assets/Gallery/Achievements/ach1.jpg', title: 'Overall Championship', caption: 'Our Samajam members secured first place with 65 points and won the Ever Rolling Trophy at the 2025 Kalamalsaram  of the Martha Mariam Vanitha Samajam, Thevalakkara Group, held at St. Gregorios Orthodox Church, Idakkulangara, on 05 October 2025.' },
+        { img: 'assets/Gallery/Achievements/ach2.jpeg', title: 'Youth Achievement', caption: 'Our members of the youth movement won the Overall Championship with 72 points at Arangu 2025, the Kollam Diocese Youth Arts Festival.' },
         
         // Add more achievements...
     ],
@@ -337,21 +337,21 @@ const galleryData = {
         // Add more programmes...
     ],
     Kurishady: [
-        { img: 'assets/gallery/Kurisady/kurisady1.png', title: 'Kurishady at Western side', caption:''},
-        { img: 'assets/gallery/Kurisady/kurisady2.jpg', title: 'Kurishady within Church premise', caption:'' },
-        { img: 'assets/gallery/Kurisady/kurisady3.png', title: 'Kurishady at Eastern side', caption:''},
+        { img: 'assets/Gallery/Kurisady/kurisady1.png', title: 'Kurishady at Western side', caption:''},
+        { img: 'assets/Gallery/Kurisady/kurisady2.jpg', title: 'Kurishady within Church premise', caption:'' },
+        { img: 'assets/Gallery/Kurisady/kurisady3.png', title: 'Kurishady at Eastern side', caption:''},
         
         // Add more meetings...
     ],
     PalliPerunnal: [
-        { img: 'assets/gallery/Palli Perunnal/per1.jpeg', title: '', caption: '' },
-        { img: 'assets/gallery/Palli Perunnal/per5.jpeg', title: '', caption: '' },
-        { img: 'assets/gallery/Palli Perunnal/per2.jpeg', title: '', caption: '' },
-        { img: 'assets/gallery/Palli Perunnal/per3.jpeg', title: '', caption: '' },
-        { img: 'assets/gallery/Palli Perunnal/per4.jpeg', title: '', caption: '' },
-        { img: 'assets/gallery/Palli Perunnal/per6.jpeg', title: '', caption: '' },
-        { img: 'assets/gallery/Palli Perunnal/per7.jpeg', title: '', caption: '' },
-        { img: 'assets/gallery/Palli Perunnal/per8.jpeg', title: '', caption: '' },
+        { img: 'assets/Gallery/Palli Perunnal/per1.jpeg', title: '', caption: '' },
+        { img: 'assets/Gallery/Palli Perunnal/per5.jpeg', title: '', caption: '' },
+        { img: 'assets/Gallery/Palli Perunnal/per2.jpeg', title: '', caption: '' },
+        { img: 'assets/Gallery/Palli Perunnal/per3.jpeg', title: '', caption: '' },
+        { img: 'assets/Gallery/Palli Perunnal/per4.jpeg', title: '', caption: '' },
+        { img: 'assets/Gallery/Palli Perunnal/per6.jpeg', title: '', caption: '' },
+        { img: 'assets/Gallery/Palli Perunnal/per7.jpeg', title: '', caption: '' },
+        { img: 'assets/Gallery/Palli Perunnal/per8.jpeg', title: '', caption: '' },
         // Add more trips...
     ],
     services: [
