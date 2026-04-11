@@ -333,7 +333,7 @@ const galleryData = {
         { img: 'assets/church4.jpg', title: 'Interior', caption: 'The faithful gathered in prayer during the Holy Qurbana' },
         { img: 'assets/Gallery/Church_images/madbaha.jpg', title: 'Madbaha', caption: 'The Holy Madbaha, the most sacred space of the church where the Holy Qurbana is celebrated.' },
         { img: 'assets/Gallery/Church_images/chur3.jpeg', title: 'Old Church', caption: 'Constructed > 1968-1969' },
-        { img: 'assets/Gallery/Church_images/rec.jpeg', title: 'Record of Church Consecration', caption: '' },
+        { img: 'assets/Gallery/Church_images/rec.jpg', title: 'Record of Church Consecration', caption: '' },
         // Add more programmes...
     ],
     Kurishady: [
