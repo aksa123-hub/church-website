@@ -340,6 +340,8 @@ const galleryData = {
         { img: 'assets/Gallery/Kurisady/kurisady1.png', title: 'Kurishady at Western side', caption:''},
         { img: 'assets/Gallery/Kurisady/kurisady2.jpg', title: 'Kurishady within Church premise', caption:'' },
         { img: 'assets/Gallery/Kurisady/kurisady3.png', title: 'Kurishady at Eastern side', caption:''},
+        { img: 'assets/Gallery/Kurisady/kurisady5.jpeg', title: 'Newly Constructed Kurishady near the Church', caption:''},
+        { img: 'assets/Gallery/Kurisady/kurisady4.jpeg', title: 'Newly Constructed Kurishady at Eastern side', caption:''},
         
         // Add more meetings...
     ],
@@ -528,7 +530,146 @@ document.addEventListener('DOMContentLoaded', () => {
     observeModals.observe(document.body, { childList: true, subtree: true });
 });
 
+// ===== SIMPLE EVENTS SLIDER =====
+document.addEventListener('DOMContentLoaded', function() {
+    const eventSlides = document.querySelectorAll('.event-slide');
+    const sliderIndicators = document.querySelector('.slider-indicators');
+    const prevButton = document.querySelector('.prev-btn');
+    const nextButton = document.querySelector('.next-btn');
 
+    if (eventSlides && eventSlides.length > 0 && sliderIndicators) {
+        let currentSlide = 0;
+        const totalSlides = eventSlides.length;
+        let autoSlide;
+
+        // Create indicator dots
+        eventSlides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = 'indicator-dot';
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            sliderIndicators.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.indicator-dot');
+
+        function showSlide(n) {
+            // Wrap around
+            if (n >= totalSlides) {
+                currentSlide = 0;
+            } else if (n < 0) {
+                currentSlide = totalSlides - 1;
+            } else {
+                currentSlide = n;
+            }
+
+            // Remove active class from all
+            eventSlides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            // Add active class to current
+            eventSlides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        function goToSlide(n) {
+            showSlide(n);
+            resetAutoSlide();
+        }
+
+        function startAutoSlide() {
+            autoSlide = setInterval(nextSlide, 5000);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(autoSlide);
+        }
+
+        function resetAutoSlide() {
+            stopAutoSlide();
+            startAutoSlide();
+        }
+
+        // Button events
+        if (nextButton) {
+            nextButton.addEventListener('click', () => {
+                nextSlide();
+                resetAutoSlide();
+            });
+        }
+
+        if (prevButton) {
+            prevButton.addEventListener('click', () => {
+                prevSlide();
+                resetAutoSlide();
+            });
+        }
+
+        // Pause on hover
+        const sliderContainer = document.querySelector('.events-slider-container');
+        if (sliderContainer) {
+            sliderContainer.addEventListener('mouseenter', stopAutoSlide);
+            sliderContainer.addEventListener('mouseleave', startAutoSlide);
+        }
+
+        // Touch/Swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        const slider = document.querySelector('.events-slider');
+        
+        if (slider) {
+            slider.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            slider.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+        }
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            if (touchStartX - touchEndX > swipeThreshold) {
+                // Swipe left - next slide
+                nextSlide();
+                resetAutoSlide();
+            } else if (touchEndX - touchStartX > swipeThreshold) {
+                // Swipe right - previous slide
+                prevSlide();
+                resetAutoSlide();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+                resetAutoSlide();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+                resetAutoSlide();
+            }
+        });
+
+        // Initialize
+        showSlide(0);
+        startAutoSlide();
+
+        console.log('Events Slider initialized with', totalSlides, 'slides');
+    } else {
+        console.log('Events Slider not found or no slides available');
+    }
+});
 // ===== CONSOLE MESSAGE =====
 console.log('%c🙏 St Mary\'s Salem Orthodox Syrian Church', 'color: #8B1538; font-size: 20px; font-weight: bold;');
 console.log('%cWebsite developed with love and devotion', 'color: #D4AF37; font-size: 14px;');
