@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>St. Mary's Salem Sooranad - Launching Soon</title>
-    <style>
-        body { font-family: sans-serif; background-color: #f0f2f5; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; text-align: center; color: #1c1e21; }
-        .card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); max-width: 400px; border-top: 5px solid #0056b3; }
-        h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
-        p { line-height: 1.6; color: #606770; }
-        .launch-date { font-weight: bold; color: #0056b3; margin-top: 1rem; font-size: 1.1rem; }
-        .email { margin-top: 1.5rem; font-size: 0.9rem; border-top: 1px solid #ddd; padding-top: 1rem; }
-    </style>
+    <!-- BUG FIX 1: Added missing Font Awesome CDN (icons were invisible without this) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>St. Mary's Salem Orthodox Syrian Church, Sooranad North</title>
+    <!-- BUG FIX 2: REMOVED the leftover "launching soon" <style> block that was here.
+         It had:  body { display:flex; align-items:center; justify-content:center; height:100vh; }
+         That overrode the main stylesheet and collapsed the entire page layout into a
+         centered flex container, hiding the navbar, hero, and all sections. -->
 </head>
 <body>
-
 
     <!-- Church Information for Google -->
     <script type="application/ld+json">
@@ -31,7 +29,7 @@
       }
     }
     </script>
-   
+
     <!-- Navigation Bar -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -55,7 +53,6 @@
                         <li><a href="#environmental">Environmental Commission</a></li>
                         <li><a href="#mgocsm">MGOCSM</a></li>
                         <li><a href="#navajyoti">Navajyoti Moms</a></li>
-                
                     </ul>
                 </li>
                 <li><a href="#gallery" class="nav-link">Gallery</a></li>
@@ -69,7 +66,6 @@
         </div>
     </nav>
 
-
     <!-- Hero Section with Church Name -->
     <header class="hero">
         <div class="hero-overlay"></div>
@@ -82,7 +78,6 @@
             <p class="church-tagline">"A Community United in Faith and Love"</p>
         </div>
     </header>
-
 
     <!-- Home Section -->
     <section id="home" class="section home-section">
@@ -122,330 +117,234 @@
                     <div class="about-highlights">
                         <div class="highlight-item slide-in-left">
                             <i class="fas fa-cross"></i>
-                            <h4>Orthodox Tradition</h4>
-                            <p>Preserving ancient faith practices</p>
+                            <div>
+                                <h4>Orthodox Tradition</h4>
+                                <p>Preserving ancient faith practices</p>
+                            </div>
                         </div>
                         <div class="highlight-item slide-in-up">
                             <i class="fas fa-hands-praying"></i>
-                            <h4>Active Worship</h4>
-                            <p> Regular services and sacraments</p>
+                            <div>
+                                <h4>Active Worship</h4>
+                                <p>Regular services and sacraments</p>
+                            </div>
                         </div>
                         <div class="highlight-item slide-in-right">
                             <i class="fas fa-people-group"></i>
-                            <h4>Community Service</h4>
-                            <p>Serving with love and compassion</p>
+                            <div>
+                                <h4>Community Service</h4>
+                                <p>Serving with love and compassion</p>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="about-image fade-in">
                     <img src="assets/Gallery/Church_images/chur4.jpg" alt="Church Interior">
-                
                 </div>
             </div>
         </div>
-    </section>  
+    </section>
 
     <!-- Church History Section -->
-<section id="history" class="section history-section">
-    <div class="container">
-        <h2 class="section-title fade-in">Our Church History</h2>
-        
-        <div class="history-content">
-            <div class="history-image fade-in">
-                <img src="assets/Gallery/Church_images/chur2.jpg" alt="Church History">
-            </div>
-            
-            <div class="history-text fade-in">
-                <p>
-                     The Orthodox faithful residing in and around Sooranad North, particularly near the Government High School and Kannamam Market area, were for many years members of their mother parishes—St. Thomas Orthodox Church and St. Mary’s Orthodox Church, Sooranad. Due to the difficulty of travelling long distances to attend Holy Qurbana and other liturgical services, the need for a new parish gradually became evident.A plot of land, adjacent to St. Thomas U.P. School, owned by the Church, was graciously made available. After obtaining the necessary permissions, construction of the new church was initiated by dismantling an old structure within the school premises.
-                </p>
-                <p>
-                    On 22 November 1968, under the leadership Fr. T.G. Geevarghese, the faithful formally entered the church premises. The foundation stone of the church was laid on 28 November 1968.
-The parish was officially established in January 1969. The consecration ceremonies were completed on 30 and 31 January 1969.Rev. Fr. T. G. Geevarghese was appointed as the first Vicar, and the parish was named St. Mary’s Salem Orthodox Syrian Church, Sooranad North. Subsequently, the parish committee and various spiritual organizations were formed.From February 1969 onward, regular Holy Qurbana and worship services were conducted. The parish feast in honour of St. Mary was celebrated annually with great devotion. 
-
-                </p>
-                <p>
-                    Over the years, several priests served the parish, strengthening its spiritual and organizational life. Youth movements, Sunday School activities, and social service initiatives flourished under their guidance.
-Construction of a new church building commenced on 1 February 2007. In 2008 with the wholehearted support of parishioners, the construction progressed steadily under the leadership of Rev. Fr. Solu Koshy Raju (who took the charge as vicar in 2008).The consecration of the renovated church was solemnly conducted on 28 and 29 January 2011 in the presence of revered bishops and clergy.
-Today, St. Mary’s Orthodox Syrian Church, Sooranad North, stands as a spiritually vibrant and structurally strong parish, faithfully preserving Orthodox tradition while actively engaging in worship, service, and community life.
-
-                </p>
+    <section id="history" class="section history-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Church History</h2>
+            <div class="history-content">
+                <div class="history-image fade-in">
+                    <img src="assets/Gallery/Church_images/chur2.jpg" alt="Church History">
+                </div>
+                <div class="history-text fade-in">
+                    <p>The Orthodox faithful residing in and around Sooranad North, particularly near the Government High School and Kannamam Market area, were for many years members of their mother parishes—St. Thomas Orthodox Church and St. Mary's Orthodox Church, Sooranad. Due to the difficulty of travelling long distances to attend Holy Qurbana and other liturgical services, the need for a new parish gradually became evident. A plot of land, adjacent to St. Thomas U.P. School, owned by the Church, was graciously made available. After obtaining the necessary permissions, construction of the new church was initiated by dismantling an old structure within the school premises.</p>
+                    <p>On 22 November 1968, under the leadership Fr. T.G. Geevarghese, the faithful formally entered the church premises. The foundation stone of the church was laid on 28 November 1968. The parish was officially established in January 1969. The consecration ceremonies were completed on 30 and 31 January 1969. Rev. Fr. T. G. Geevarghese was appointed as the first Vicar, and the parish was named St. Mary's Salem Orthodox Syrian Church, Sooranad North. Subsequently, the parish committee and various spiritual organizations were formed. From February 1969 onward, regular Holy Qurbana and worship services were conducted. The parish feast in honour of St. Mary was celebrated annually with great devotion.</p>
+                    <p>Over the years, several priests served the parish, strengthening its spiritual and organizational life. Youth movements, Sunday School activities, and social service initiatives flourished under their guidance. Construction of a new church building commenced on 1 February 2007. In 2008, with the wholehearted support of parishioners, the construction progressed steadily under the leadership of Rev. Fr. Solu Koshy Raju. The consecration of the renovated church was solemnly conducted on 28 and 29 January 2011 in the presence of revered bishops and clergy. Today, St. Mary's Orthodox Syrian Church, Sooranad North, stands as a spiritually vibrant and structurally strong parish, faithfully preserving Orthodox tradition while actively engaging in worship, service, and community life.</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Latest Events & Updates Section -->
-<section id="latest-events" class="section events-slider-section">
-    <div class="container">
-        <h2 class="section-title fade-in">Latest Events & Updates</h2>
-        <p class="section-subtitle fade-in">Stay updated with our recent activities and celebrations</p>
-        
-        <div class="events-slider-container">
-            <button class="slider-nav-btn prev-btn" aria-label="Previous">
-                <i class="fas fa-chevron-left"></i>
-            </button>
+    <!-- Latest Events & Updates Section -->
+    <section id="latest-events" class="section events-slider-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Latest Events &amp; Updates</h2>
+            <p class="section-subtitle fade-in">Stay updated with our recent activities and celebrations</p>
 
-            <div class="events-slider">
-                <!-- Event Slide 1 -->
-                <div class="event-slide active">
-                    <div class="event-slide-image">
-                        <img src="assets/Gallery/Updates/ina1.jpeg" alt="Consecration">
+            <div class="events-slider-container">
+                <button class="slider-nav-btn prev-btn" aria-label="Previous">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+
+                <div class="events-slider">
+                    <div class="event-slide active">
+                        <div class="event-slide-image">
+                            <img src="assets/Gallery/Updates/ina1.jpeg" alt="Consecration">
+                        </div>
+                        <div class="event-slide-caption">
+                            <h3>Consecration</h3>
+                            <p>Consecration of the Newly Constructed Shrines</p>
+                        </div>
                     </div>
-                    <div class="event-slide-caption">
-                        <h3>Consecration</h3>
-                        <p>Consecration of the Newly Constructed Shrines</p>
+                    <div class="event-slide">
+                        <div class="event-slide-image">
+                            <img src="assets/Gallery/Updates/ina2.jpeg" alt="Consecration">
+                        </div>
+                        <div class="event-slide-caption"><h3></h3><p></p></div>
+                    </div>
+                    <div class="event-slide">
+                        <div class="event-slide-image">
+                            <img src="assets/Gallery/Updates/ina3.jpeg" alt="Consecration">
+                        </div>
+                        <div class="event-slide-caption"><h3></h3><p></p></div>
+                    </div>
+                    <div class="event-slide">
+                        <div class="event-slide-image">
+                            <img src="assets/Gallery/Updates/ina4.jpeg" alt="Consecration">
+                        </div>
+                        <div class="event-slide-caption"><h3></h3><p></p></div>
+                    </div>
+                    <div class="event-slide">
+                        <div class="event-slide-image">
+                            <img src="assets/Gallery/Updates/chemb1.jpeg" alt="Feast Day Celebration">
+                        </div>
+                        <div class="event-slide-caption">
+                            <h3>Chembeduppu 2026</h3>
+                            <p>Devotees participating in the Chembeduppu as part of the Feast of St. George</p>
+                        </div>
+                    </div>
+                    <div class="event-slide">
+                        <div class="event-slide-image">
+                            <img src="assets/Gallery/Updates/chemb2.jpeg" alt="Feast Day Celebration">
+                        </div>
+                        <div class="event-slide-caption"><h3></h3><p></p></div>
+                    </div>
+                    <div class="event-slide">
+                        <div class="event-slide-image">
+                            <img src="assets/Gallery/Updates/chemb3.jpeg" alt="Feast Day Celebration">
+                        </div>
+                        <div class="event-slide-caption"><h3></h3><p></p></div>
+                    </div>
+                    <div class="event-slide">
+                        <div class="event-slide-image">
+                            <img src="assets/Gallery/Updates/chemb4.jpeg" alt="Feast Day Celebration">
+                        </div>
+                        <div class="event-slide-caption"><h3></h3><p></p></div>
+                    </div>
+                    <div class="event-slide">
+                        <div class="event-slide-image">
+                            <img src="assets/Gallery/Updates/trip4.jpeg" alt="Malayattoor">
+                        </div>
+                        <div class="event-slide-caption">
+                            <h3>Malayattoor Trip</h3>
+                            <p>Parish Pilgrimage to Malayattoor</p>
+                        </div>
+                    </div>
+                    <div class="event-slide">
+                        <div class="event-slide-image">
+                            <img src="assets/Gallery/Updates/ov1.jpeg" alt="OVBS">
+                        </div>
+                        <div class="event-slide-caption">
+                            <h3>OVBS Trip</h3>
+                            <p>OVBS Students' Trip</p>
+                        </div>
+                    </div>
+                    <div class="event-slide">
+                        <div class="event-slide-image">
+                            <img src="assets/Gallery/Updates/trip2.jpeg" alt="Trip">
+                        </div>
+                        <div class="event-slide-caption">
+                            <h3>Thiruvithamcode Trip</h3>
+                            <p>Bike Pilgrimage to Thiruvithamcode by Parish Youth Movement Members along with the Vicar</p>
+                        </div>
+                    </div>
+                    <div class="event-slide">
+                        <div class="event-slide-image">
+                            <img src="assets/Gallery/Updates/trip3.jpeg" alt="Trip">
+                        </div>
+                        <div class="event-slide-caption"><h3></h3><p></p></div>
+                    </div>
+                    <div class="event-slide">
+                        <div class="event-slide-image">
+                            <img src="assets/Gallery/Updates/trip5.jpeg" alt="Trip">
+                        </div>
+                        <div class="event-slide-caption"><h3></h3><p></p></div>
                     </div>
                 </div>
 
-                <!-- Event Slide 2 -->
-                <div class="event-slide">
-                    <div class="event-slide-image">
-                        <img src="assets/Gallery/Updates/ina2.jpeg" alt="Consecration">
-                    </div>
-                    <div class="event-slide-caption">
-                        <h3></h3>
-                        <p></p>
-                    </div>
-                </div>
-
-                <!-- Event Slide 3 -->
-                <div class="event-slide">
-                    <div class="event-slide-image">
-                        <img src="assets/Gallery/Updates/ina3.jpeg" alt="Consecration">
-                    </div>
-                    <div class="event-slide-caption">
-                        <h3></h3>
-                        <p></p>
-                    </div>
-                </div>
-
-                <!-- Event Slide 4 -->
-                <div class="event-slide">
-                    <div class="event-slide-image">
-                        <img src="assets/Gallery/Updates/ina4.jpeg" alt="Consecration">
-                    </div>
-                    <div class="event-slide-caption">
-                        <h3></h3>
-                        <p></p>
-                    </div>
-                </div>
-
-                <!-- Event Slide 5 -->
-                <div class="event-slide">
-                    <div class="event-slide-image">
-                        <img src="assets/Gallery/Updates/chemb1.jpeg" alt="Feast Day Celebration">
-                    </div>
-                    <div class="event-slide-caption">
-                        <h3>Chembeduppu 2026</h3>
-                        <p>Devotees participating in the Chembeduppu as part of the Feast of St. George</p>
-                    </div>
-                </div>
-
-                <!-- Event Slide 6 -->
-                <div class="event-slide">
-                    <div class="event-slide-image">
-                        <img src="assets/Gallery/Updates/chemb2.jpeg" alt="Feast Day Celebration">
-                    </div>
-                    <div class="event-slide-caption">
-                        <h3></h3>
-                        <p></p>
-                    </div>
-                </div>
-
-                <!-- Event Slide 7 -->
-                <div class="event-slide">
-                    <div class="event-slide-image">
-                        <img src="assets/Gallery/Updates/chemb3.jpeg" alt="Feast Day Celebration">
-                    </div>
-                    <div class="event-slide-caption">
-                        <h3></h3>
-                        <p></p>
-                    </div>
-                </div>
-
-                <!-- Event Slide 8 -->
-                <div class="event-slide">
-                    <div class="event-slide-image">
-                        <img src="assets/Gallery/Updates/chemb4.jpeg" alt="Feast Day Celebration">
-                    </div>
-                    <div class="event-slide-caption">
-                        <h3></h3>
-                        <p></p>
-                    </div>
-                </div>
-
-                <!-- Event Slide 9 -->
-                <div class="event-slide">
-                    <div class="event-slide-image">
-                        <img src="assets/Gallery/Updates/trip4.jpeg" alt="Malayattoor">
-                    </div>
-                    <div class="event-slide-caption">
-                        <h3>Malayattoor Trip</h3>
-                        <p>Parish Pilgrimage to Malayattoor</p>
-                    </div>
-                </div>
-
-                <!-- Event Slide 10 -->
-                <div class="event-slide">
-                    <div class="event-slide-image">
-                        <img src="assets/Gallery/Updates/ov1.jpeg" alt="OVBS">
-                    </div>
-                    <div class="event-slide-caption">
-                        <h3>OVBS Trip</h3>
-                        <p>OVBS Students' Trip</p>
-                    </div>
-                </div>
-
-
-
-                <!-- Event Slide 11 -->
-                <div class="event-slide">
-                    <div class="event-slide-image">
-                        <img src="assets/Gallery/Updates/trip2.jpeg" alt="Trip">
-                    </div>
-                    <div class="event-slide-caption">
-                        <h3>Thiruvithamcode Trip</h3>
-                        <p>Bike Pilgrimage to Thiruvithamcode by Parish Youth Movement Members along with the Vicar</p>
-                    </div>
-                </div>
-
-
-                <!-- Event Slide 12 -->
-                <div class="event-slide">
-                    <div class="event-slide-image">
-                        <img src="assets/Gallery/Updates/trip3.jpeg" alt="Trip">
-                    </div>
-                    <div class="event-slide-caption">
-                        <h3></h3>
-                        <p></p>
-                    </div>
-                </div>
-
-                 <!-- Event Slide 13 -->
-                <div class="event-slide">
-                    <div class="event-slide-image">
-                        <img src="assets/Gallery/Updates/trip5.jpeg" alt="Trip">
-                    </div>
-                    <div class="event-slide-caption">
-                        <h3></h3>
-                        <p></p>
-                    </div>
-                </div>
-
-
-
-
-                <!-- Add more slides as needed -->
+                <button class="slider-nav-btn next-btn" aria-label="Next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
 
-            <button class="slider-nav-btn next-btn" aria-label="Next">
-                <i class="fas fa-chevron-right"></i>
-            </button>
+            <div class="slider-indicators"></div>
         </div>
-
-        <!-- Slider Indicators -->
-        <div class="slider-indicators"></div>
-    </div>
-</section>
-
-
-
-
+    </section>
 
     <!-- Meet Our Shepherd Section -->
-<section id="vicar" class="section vicar-section">
-    <div class="container">
-        <h2 class="section-title fade-in">Meet Our Shepherd</h2>
-        <p class="section-subtitle fade-in">Guiding our spiritual journey with wisdom and compassion</p>
-        
-        <div class="vicar-content">
-            <div class="vicar-image-container fade-in">
-                <div class="vicar-image-frame">
-                    <img src="assets/fr.jpg.jpeg" alt="Rev. Fr. Andrews Varghese Thomas" class="vicar-image">
-                </div>
-            </div>
-            
-            <div class="vicar-info fade-in">
-                <h3 class="vicar-name">Rev. Fr. Andrews Varghese Thomas</h3>
-                <p class="vicar-title">Vicar & Parish Priest</p>
-                
-                <div class="vicar-bio">
-                    <p>Rev. Fr. Andrews Varghese Thomas is the Vicar of St. Mary’s Orthodox Syrian Church, Sooranad North. A devoted priest of the Malankara Orthodox Syrian Church, he is known for his compassionate pastoral care, inspiring sermons, and committed leadership in nurturing the spiritual life of the parish.
+    <section id="vicar" class="section vicar-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Meet Our Shepherd</h2>
+            <p class="section-subtitle fade-in">Guiding our spiritual journey with wisdom and compassion</p>
 
-Alongside his priestly ministry, he is an experienced educator and scholar, having taught theology, philosophy, and humanities in various institutions. He holds academic qualifications including B.A, M.A, B.Ed, M.Ed, and B.D, and has contributed to writings and research in spirituality and social issues.</p>
-                    
-                    <p>Fr. Andrews has actively served the Church in various capacities, including as a member of the Diocesan Council and in leadership roles such as Vice President of Akhila Malankara Orthodox Shushrushaka Sangham (South Zone) and other diocesan organizations. He has also served as Vicar in several parishes across the diocese</p>
-                    
-                    <p>His contributions have been recognized through various honors, including his service as Kerala University Union Councillor, Secretary of the Malayalam Association at D.B. College, and Sub-Editor of Pourasthya Tharam magazine. He is also a recipient of awards in elocution and essay writing competitions.
-
-With rich pastoral experience and active involvement in church and social initiatives, Fr. Andrews continues to guide the faithful with dedication, wisdom, and faith.</p>
+            <div class="vicar-content">
+                <div class="vicar-image-container fade-in">
+                    <div class="vicar-image-frame">
+                        <img src="assets/fr.jpg.jpeg" alt="Rev. Fr. Andrews Varghese Thomas" class="vicar-image">
+                    </div>
                 </div>
-                
+                <div class="vicar-info fade-in">
+                    <h3 class="vicar-name">Rev. Fr. Andrews Varghese Thomas</h3>
+                    <p class="vicar-title">Vicar &amp; Parish Priest</p>
+                    <div class="vicar-bio">
+                        <p>Rev. Fr. Andrews Varghese Thomas is the Vicar of St. Mary's Orthodox Syrian Church, Sooranad North. A devoted priest of the Malankara Orthodox Syrian Church, he is known for his compassionate pastoral care, inspiring sermons, and committed leadership in nurturing the spiritual life of the parish. Alongside his priestly ministry, he is an experienced educator and scholar, having taught theology, philosophy, and humanities in various institutions. He holds academic qualifications including B.A, M.A, B.Ed, M.Ed, and B.D, and has contributed to writings and research in spirituality and social issues.</p>
+                        <p>Fr. Andrews has actively served the Church in various capacities, including as a member of the Diocesan Council and in leadership roles such as Vice President of Akhila Malankara Orthodox Shushrushaka Sangham (South Zone) and other diocesan organizations. He has also served as Vicar in several parishes across the diocese.</p>
+                        <p>His contributions have been recognized through various honors, including his service as Kerala University Union Councillor, Secretary of the Malayalam Association at D.B. College, and Sub-Editor of Pourasthya Tharam magazine. He is also a recipient of awards in elocution and essay writing competitions. With rich pastoral experience and active involvement in church and social initiatives, Fr. Andrews continues to guide the faithful with dedication, wisdom, and faith.</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Office Bearers Section -->
-<section id="office-bearers" class="section bearers-section">
-    <div class="container">
-        <h2 class="section-title fade-in">Office Bearers</h2>
-        <p class="section-subtitle fade-in">Dedicated leaders serving our parish community</p>
-        
-        <div class="bearers-grid">
-            <!-- Vicar -->
-            <div class="bearer-card fade-in">
-                
-                <div class="bearer-info">
-                    <h3 class="bearer-name">Rev. Fr. Andrews Varghese Thomas</h3>
-                    <p class="bearer-position">Vicar</p>
+    <section id="office-bearers" class="section bearers-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Office Bearers</h2>
+            <p class="section-subtitle fade-in">Dedicated leaders serving our parish community</p>
+            <div class="bearers-grid">
+                <div class="bearer-card fade-in">
+                    <div class="bearer-info">
+                        <h3 class="bearer-name">Rev. Fr. Andrews Varghese Thomas</h3>
+                        <p class="bearer-position">Vicar</p>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Trustee -->
-            <div class="bearer-card fade-in">
-                
-                <div class="bearer-info">
-                    <h3 class="bearer-name">Mr.James Cherian</h3>
-                    <p class="bearer-position">Trustee</p>
-                    <p class="bearer-contact">
-                        <i class="fas fa-phone"></i> +91 9847490332
-                    </p>
+                <div class="bearer-card fade-in">
+                    <div class="bearer-info">
+                        <h3 class="bearer-name">Mr. James Cherian</h3>
+                        <p class="bearer-position">Trustee</p>
+                        <p class="bearer-contact"><i class="fas fa-phone"></i> +91 9847490332</p>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Secretary -->
-            <div class="bearer-card fade-in">
-                
-                <div class="bearer-info">
-                    <h3 class="bearer-name">Mr.Ajeesh P.K</h3>
-                    <p class="bearer-position">Secretary</p>
-                    <p class="bearer-contact">
-                        <i class="fas fa-phone"></i> +91 9947011534
-                    </p>
+                <div class="bearer-card fade-in">
+                    <div class="bearer-info">
+                        <h3 class="bearer-name">Mr. Ajeesh P.K</h3>
+                        <p class="bearer-position">Secretary</p>
+                        <p class="bearer-contact"><i class="fas fa-phone"></i> +91 9947011534</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
+    </section>
 
     <!-- Spiritual Organizations Section -->
     <section id="spiritual" class="section spiritual-section">
         <div class="container">
             <h2 class="section-title fade-in">Spiritual Organizations</h2>
             <p class="section-subtitle fade-in">Active ministries nurturing faith and fellowship</p>
-            
-            <!-- Sunday School -->
+
             <div id="sunday-school" class="org-card fade-in">
                 <div class="org-image">
                     <img src="assets/sun.jpeg" alt="Sunday School">
                 </div>
                 <div class="org-content">
-                    <div class="org-icon">
-                        <i class="fas fa-child"></i>
-                    </div>
+                    <div class="org-icon"><i class="fas fa-child"></i></div>
                     <h3>Sunday School</h3>
                     <p>Nurturing young minds in Christian faith and values. Our Sunday School provides age-appropriate Biblical education, helping children grow in their relationship with Christ through engaging lessons, prayers, and activities.</p>
                     <div class="org-details">
@@ -455,17 +354,14 @@ With rich pastoral experience and active involvement in church and social initia
                 </div>
             </div>
 
-            <!-- Martha Mariyam Samajam -->
             <div id="martha-mariyam" class="org-card fade-in">
                 <div class="org-content">
-                    <div class="org-icon">
-                        <i class="fas fa-female"></i>
-                    </div>
+                    <div class="org-icon"><i class="fas fa-female"></i></div>
                     <h3>Martha Mariyam Samajam</h3>
                     <p>Empowering women through faith, fellowship, and service. The Martha Mariyam Samajam brings together women of our parish for spiritual growth, charitable activities, and supporting church missions.</p>
                     <div class="org-details">
                         <span><i class="fas fa-clock"></i> Monthly Meetings</span>
-                        <span><i class="fas fa-heart"></i> Service & Fellowship</span>
+                        <span><i class="fas fa-heart"></i> Service &amp; Fellowship</span>
                     </div>
                 </div>
                 <div class="org-image">
@@ -473,15 +369,12 @@ With rich pastoral experience and active involvement in church and social initia
                 </div>
             </div>
 
-            <!-- Youth Movement -->
             <div id="youth-movement" class="org-card fade-in">
                 <div class="org-image">
                     <img src="assets/youth1.jpg.jpeg" alt="Youth Movement">
                 </div>
                 <div class="org-content">
-                    <div class="org-icon">
-                        <i class="fas fa-user-friends"></i>
-                    </div>
+                    <div class="org-icon"><i class="fas fa-user-friends"></i></div>
                     <h3>Youth Movement</h3>
                     <p>Inspiring and equipping young adults to live out their faith boldly. Our Youth Movement provides opportunities for spiritual development, leadership training, and community service through various programs and activities.</p>
                     <div class="org-details">
@@ -491,12 +384,9 @@ With rich pastoral experience and active involvement in church and social initia
                 </div>
             </div>
 
-            <!-- AMOSS -->
             <div id="amoss" class="org-card fade-in">
                 <div class="org-content">
-                    <div class="org-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
+                    <div class="org-icon"><i class="fas fa-hands-helping"></i></div>
                     <h3>AMOSS</h3>
                     <p>AMOSS (Akhila Malankara Orthodox Shusrushaka Sangham) is a spiritual movement that trains and guides altar servers, promoting discipline and uniformity in church worship. Through regular training programs and conferences, it nurtures dedicated youth to serve the Holy Church.</p>
                     <div class="org-details">
@@ -509,15 +399,12 @@ With rich pastoral experience and active involvement in church and social initia
                 </div>
             </div>
 
-            <!-- Prarthana Yogam -->
             <div id="prarthana-yogam" class="org-card fade-in">
                 <div class="org-image">
                     <img src="assets/pray.jpg" alt="Prarthana Yogam">
                 </div>
                 <div class="org-content">
-                    <div class="org-icon">
-                        <i class="fas fa-praying-hands"></i>
-                    </div>
+                    <div class="org-icon"><i class="fas fa-praying-hands"></i></div>
                     <h3>Prarthana Yogam</h3>
                     <p>A dedicated prayer fellowship fostering deep spiritual communion and intercession. Our prayer warriors gather regularly to lift up the needs of our parish, community, and world through fervent prayer and worship.</p>
                     <div class="org-details">
@@ -527,17 +414,14 @@ With rich pastoral experience and active involvement in church and social initia
                 </div>
             </div>
 
-            <!-- Balasamajam -->
             <div id="balasamajam" class="org-card fade-in">
                 <div class="org-content">
-                    <div class="org-icon">
-                        <i class="fas fa-children"></i>
-                    </div>
+                    <div class="org-icon"><i class="fas fa-children"></i></div>
                     <h3>Balasamajam</h3>
                     <p>Nurturing young hearts and minds in Christian values and Orthodox traditions. Balasamajam provides a vibrant platform for children to learn, grow, and express their faith through activities, competitions, and fellowship.</p>
                     <div class="org-details">
                         <span><i class="fas fa-clock"></i> Monthly Gatherings</span>
-                        <span><i class="fas fa-users"></i> Children & Pre-teens</span>
+                        <span><i class="fas fa-users"></i> Children &amp; Pre-teens</span>
                     </div>
                 </div>
                 <div class="org-image">
@@ -545,30 +429,23 @@ With rich pastoral experience and active involvement in church and social initia
                 </div>
             </div>
 
-            <!-- Church Choir -->
             <div id="church-choir" class="org-card fade-in">
                 <div class="org-image">
                     <img src="assets/choir1.jpeg" alt="Church Choir">
                 </div>
                 <div class="org-content">
-                    <div class="org-icon">
-                        <i class="fas fa-music"></i>
-                    </div>
+                    <div class="org-icon"><i class="fas fa-music"></i></div>
                     <h3>Church Choir</h3>
                     <p>Leading our congregation in worship through sacred hymns and traditional Orthodox chants. Our dedicated choir enriches the Holy Qurbana and special services with beautiful liturgical music that glorifies God.</p>
                     <div class="org-details">
-                        
                         <span><i class="fas fa-music"></i> Liturgical Music</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Environmental Commission -->
             <div id="environmental" class="org-card fade-in">
                 <div class="org-content">
-                    <div class="org-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
+                    <div class="org-icon"><i class="fas fa-leaf"></i></div>
                     <h3>Environmental Commission</h3>
                     <p>Caring for God's creation through environmental awareness and sustainable practices. Our commission promotes eco-friendly initiatives, organizes clean-up drives, and educates the parish on stewardship of our natural resources.</p>
                     <div class="org-details">
@@ -581,128 +458,112 @@ With rich pastoral experience and active involvement in church and social initia
                 </div>
             </div>
 
-            <!-- MGOCSM -->
             <div id="mgocsm" class="org-card fade-in">
                 <div class="org-image">
                     <img src="assets/mgoscm.png" alt="MGOCSM">
                 </div>
                 <div class="org-content">
-                    <div class="org-icon">
-                        <i class="fas fa-user-graduate"></i>
-                    </div>
+                    <div class="org-icon"><i class="fas fa-user-graduate"></i></div>
                     <h3>MGOCSM</h3>
                     <p>Mar Gregorios Orthodox Christian Student Movement (MGOCSM) is the student wing of the Malankara Orthodox Syrian Church. MGOCSM provides mentorship, spiritual guidance, and opportunities for students to grow as faithful witnesses in their educational journey.</p>
                     <div class="org-details">
                         <span><i class="fas fa-clock"></i> Monthly Meetings</span>
-                        <span><i class="fas fa-users"></i> Students & Young Adults</span>
+                        <span><i class="fas fa-users"></i> Students &amp; Young Adults</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Navajyoti Moms -->
             <div id="navajyoti" class="org-card fade-in">
                 <div class="org-content">
-                    <div class="org-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
+                    <div class="org-icon"><i class="fas fa-heart"></i></div>
                     <h3>Navajyoti Moms</h3>
                     <p>Supporting and empowering mothers through fellowship, prayer, and mutual encouragement. Navajyoti Moms creates a nurturing space for mothers to share experiences, grow in faith, and support one another in their parenting journey.</p>
                     <div class="org-details">
                         <span><i class="fas fa-clock"></i> Monthly Gatherings</span>
-                        <span><i class="fas fa-heart"></i> Fellowship & Support</span>
+                        <span><i class="fas fa-heart"></i> Fellowship &amp; Support</span>
                     </div>
                 </div>
                 <div class="org-image">
                     <img src="assets/mom.png" alt="Navajyoti Moms">
                 </div>
             </div>
-
         </div>
     </section>
 
     <!-- Gallery Section -->
-<section id="gallery" class="section gallery-section">
-    <div class="container">
-        <h2 class="section-title fade-in">Gallery</h2>
-        <p class="section-subtitle fade-in">Moments of faith and fellowship</p>
-        
-        <!-- Gallery Categories -->
-        <div class="gallery-categories">
-            <!-- Events Category -->
-            <div class="gallery-category fade-in" data-category="events">
-                <div class="category-card">
-                    <div class="category-image">
-                        <img src="assets/Gallery/Events and Activities/event4.jpg" alt="Events">
-                        <div class="category-overlay">
-                            <i class="fas fa-images"></i>
-                            <h3>Events</h3>
-                            <p>Click to view all event photos</p>
+    <section id="gallery" class="section gallery-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Gallery</h2>
+            <p class="section-subtitle fade-in">Moments of faith and fellowship</p>
+
+            <div class="gallery-categories">
+                <div class="gallery-category fade-in" data-category="events">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="assets/Gallery/Events and Activities/event4.jpg" alt="Events">
+                            <div class="category-overlay">
+                                <i class="fas fa-images"></i>
+                                <h3>Events</h3>
+                                <p>Click to view all event photos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-category fade-in" data-category="achievements">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="assets/Gallery/Achievements/ach.jpg" alt="Achievements">
+                            <div class="category-overlay">
+                                <i class="fas fa-trophy"></i>
+                                <h3>Achievements</h3>
+                                <p>Click to view all achievements</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-category fade-in" data-category="church_images">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="assets/churchmain.jpg" alt="Church Images">
+                            <div class="category-overlay">
+                                <i class="fas fa-calendar-check"></i>
+                                <h3>Church Images</h3>
+                                <p>Click to view all photos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-category fade-in" data-category="Kurishady">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="assets/Gallery/Kurisady/kurisady.jpg" alt="Kurishady">
+                            <div class="category-overlay">
+                                <i class="fas fa-images"></i>
+                                <h3>Kurishady</h3>
+                                <p>Click to view all photos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-category fade-in" data-category="PalliPerunnal">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="assets/Gallery/Palli Perunnal/per1.jpeg" alt="Palli Perunnal">
+                            <div class="category-overlay">
+                                <i class="fas fa-users"></i>
+                                <h3>Palli Perunnal</h3>
+                                <p>Click to view all photos</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Achievements Category -->
-            <div class="gallery-category fade-in" data-category="achievements">
-                <div class="category-card">
-                    <div class="category-image">
-                        <img src="assets/Gallery/Achievements/ach.jpg" alt="Achievements">
-                        <div class="category-overlay">
-                            <i class="fas fa-trophy"></i>
-                            <h3>Achievements</h3>
-                            <p>Click to view all achievements</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Church Images Category -->
-            <div class="gallery-category fade-in" data-category="church_images">
-                <div class="category-card">
-                    <div class="category-image">
-                        <img src="assets/churchmain.jpg" alt="Church_Images">
-                        <div class="category-overlay">
-                            <i class="fas fa-calendar-check"></i>
-                            <h3>Church Images</h3>
-                            <p>Click to view all photos</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Kurishady Category -->
-            <div class="gallery-category fade-in" data-category="Kurishady">
-                <div class="category-card">
-                    <div class="category-image">
-                        <img src="assets/Gallery/Kurisady/kurisady.jpg" alt="Kurishady">
-                        <div class="category-overlay">
-                            <i class="fas fa-images"></i>
-                            <h3>Kurishady</h3>
-                            <p>Click to view all photos</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Palli Perunnal Category -->
-            <div class="gallery-category fade-in" data-category="PalliPerunnal">
-                <div class="category-card">
-                    <div class="category-image">
-                        <img src="assets/Gallery/Palli Perunnal/per1.jpeg" alt="Palli Perunnal">
-                        <div class="category-overlay">
-                            <i class="fas fa-users"></i>
-                            <h3>Palli Perunnal</h3>
-                            <p>Click to view all photos</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            
-            
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="section contact-section">
@@ -712,36 +573,28 @@ With rich pastoral experience and active involvement in church and social initia
             <div class="contact-content">
                 <div class="contact-info fade-in">
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div class="contact-details">
                             <h4>Address</h4>
                             <p>St Mary's Salem Orthodox Syrian Church<br>Sooranad North<br>Kerala, India</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
                         <div class="contact-details">
                             <h4>Phone</h4>
                             <p>+91 7510905469</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <div class="contact-details">
                             <h4>Email</h4>
                             <p>info@stmaryssalemsooranad.org</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
                         <div class="contact-details">
                             <h4>Service Timings</h4>
                             <p>Holy Qurbana: Sunday 6:30 AM<br>Evening Prayer: Saturday 6:00 PM</p>
@@ -778,11 +631,11 @@ With rich pastoral experience and active involvement in church and social initia
                     <h4>Connect With Us</h4>
                     <div class="social-links">
                         <a href="https://www.facebook.com/groups/salemosc/" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-facebook"></i>
-        </a>
-        <a href="https://www.instagram.com/st_marys_salem_sooranad" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-instagram"></i>
-        </a>
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/st_marys_salem_sooranad" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -793,9 +646,5 @@ With rich pastoral experience and active involvement in church and social initia
     </footer>
 
     <script src="js/main.js"></script>
-
-
-    
-
 </body>
 </html>

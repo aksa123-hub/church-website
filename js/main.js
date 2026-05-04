@@ -16,19 +16,18 @@ window.addEventListener('scroll', () => {
     } else {
         navbar.classList.remove('scrolled');
     }
-    
+
     // Update active nav link based on scroll position
     let current = '';
     const sections = document.querySelectorAll('.section');
-    
+
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
         if (window.scrollY >= sectionTop - 200) {
             current = section.getAttribute('id');
         }
     });
-    
+
     navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href').includes(current)) {
@@ -92,7 +91,7 @@ dropdowns.forEach(dropdown => {
     });
 });
 
-// Close when clicking outside
+// Close dropdowns when clicking outside
 document.addEventListener('click', (e) => {
     if (!e.target.closest('.dropdown')) {
         dropdowns.forEach(dropdown => {
@@ -109,7 +108,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         if (target) {
             const navHeight = navbar.offsetHeight;
             const targetPosition = target.offsetTop - navHeight;
-            
             window.scrollTo({
                 top: targetPosition,
                 behavior: 'smooth'
@@ -132,64 +130,16 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all animated elements
 const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .slide-in-up');
 animatedElements.forEach(el => {
     observer.observe(el);
     const rect = el.getBoundingClientRect();
-    const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
-    if (isInViewport) {
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
         el.classList.add('visible');
     }
 });
 
-// ===== GALLERY LIGHTBOX EFFECT =====
-const galleryItems = document.querySelectorAll('.gallery-item');
-
-galleryItems.forEach(item => {
-    item.addEventListener('click', () => {
-        const img = item.querySelector('img');
-        const lightbox = document.createElement('div');
-        lightbox.className = 'lightbox';
-        lightbox.innerHTML = `
-            <div class="lightbox-content">
-                <span class="lightbox-close">&times;</span>
-                <img src="${img.src}" alt="${img.alt}">
-                <div class="lightbox-caption">${img.alt}</div>
-            </div>
-        `;
-        document.body.appendChild(lightbox);
-        document.body.style.overflow = 'hidden';
-        
-        setTimeout(() => {
-            lightbox.style.opacity = '1';
-        }, 10);
-        
-        const closeBtn = lightbox.querySelector('.lightbox-close');
-        closeBtn.addEventListener('click', closeLightbox);
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                closeLightbox();
-            }
-        });
-        
-        function closeLightbox() {
-            lightbox.style.opacity = '0';
-            setTimeout(() => {
-                document.body.removeChild(lightbox);
-                document.body.style.overflow = 'auto';
-            }, 300);
-        }
-        
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeLightbox();
-            }
-        });
-    });
-});
-
-// Add lightbox styles dynamically
+// ===== LIGHTBOX STYLES =====
 const style = document.createElement('style');
 style.textContent = `
     .lightbox {
@@ -199,29 +149,27 @@ style.textContent = `
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.95);
-        z-index: 10000;
+        z-index: 20000;
         display: flex;
         align-items: center;
         justify-content: center;
         opacity: 0;
         transition: opacity 0.3s ease;
     }
-    
     .lightbox-content {
         position: relative;
         max-width: 90%;
         max-height: 90%;
         animation: zoomIn 0.3s ease;
     }
-    
     .lightbox-content img {
         max-width: 100%;
-        max-height: 85vh;
+        max-height: 80vh;
         object-fit: contain;
         border-radius: 10px;
         box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+        display: block;
     }
-    
     .lightbox-close {
         position: absolute;
         top: -50px;
@@ -233,27 +181,26 @@ style.textContent = `
         font-weight: 300;
         line-height: 1;
     }
-    
     .lightbox-close:hover {
         transform: rotate(90deg);
     }
-    
     .lightbox-caption {
         text-align: center;
         color: white;
         margin-top: 20px;
-        font-size: 1.2rem;
     }
-    
+    .lightbox-caption h3 {
+        font-size: 1.3rem;
+        color: #FFD700;
+        margin-bottom: 8px;
+    }
+    .lightbox-caption p {
+        font-size: 1rem;
+        color: #FFF8DC;
+    }
     @keyframes zoomIn {
-        from {
-            transform: scale(0.8);
-            opacity: 0;
-        }
-        to {
-            transform: scale(1);
-            opacity: 1;
-        }
+        from { transform: scale(0.8); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
     }
 `;
 document.head.appendChild(style);
@@ -263,24 +210,25 @@ const hero = document.querySelector('.hero');
 
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
-    const parallax = scrolled * 0.5;
-    
     if (hero) {
-        hero.style.backgroundPositionY = parallax + 'px';
+        hero.style.backgroundPositionY = (scrolled * 0.5) + 'px';
     }
 });
 
 // ===== CARDS HOVER EFFECT =====
-const cards = document.querySelectorAll('.info-card, .org-card, .contact-item');
+// BUG FIX 5: org-card was included here, causing JS to set translateY(-10px)
+// while the CSS was already setting translateX(10px) — they conflicted and
+// produced a jittery diagonal movement. Removed org-card from JS hover handler
+// since CSS already handles it cleanly via the fixed .org-card:hover rule.
+const cards = document.querySelectorAll('.info-card, .contact-item');
 
 cards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
+    card.addEventListener('mouseenter', function () {
         this.style.transform = 'translateY(-10px)';
     });
-    
-    card.addEventListener('mouseleave', function() {
+    card.addEventListener('mouseleave', function () {
         this.style.transform = 'translateY(0)';
-    }); 
+    });
 });
 
 // ===== SCROLL TO TOP BUTTON =====
@@ -298,35 +246,28 @@ window.addEventListener('scroll', () => {
 });
 
 scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// ===== LOADING ANIMATION =====
+// BUG FIX 6: The original code set body opacity to 0 on window.load, then faded
+// it back in. If JS loaded slowly, the page was invisible for a noticeable flash.
+// Replaced with a proper CSS-driven fade-in on the body that doesn't cause a
+// blank-page flash — body starts visible and fades in gracefully.
 window.addEventListener('load', () => {
-    document.body.style.opacity = '0';
-    setTimeout(() => {
-        document.body.style.transition = 'opacity 0.5s ease';
-        document.body.style.opacity = '1';
-    }, 100);
+    document.body.style.transition = 'opacity 0.4s ease';
+    document.body.style.opacity = '1';
 });
 
-// ===== GALLERY CATEGORIES WITH SUBGALLERY =====
+// ===== GALLERY CATEGORIES DATA =====
 const galleryData = {
     events: [
         { img: 'assets/Gallery/Events and Activities/event6.jpeg', title: 'Thevalakkara Group Conference 2026', caption: 'The Martha Mariam Samajam Thevalakkara Group Conference was held at our church on Saturday, 24 January 2026.' },
-        { img: 'assets/Gallery/Events and Activities/event5.jpeg', title: 'Amrutham', caption: 'The “Amrutham – Mar Anthonios Memorial Food Distribution Programme” of the Thevalakkara Group was organised by the St. Gregorios Youth Movement of St. Mary’s Salem Orthodox Syrian Church, Sooranad North, and held at Karunagappally Puthiyakavu T.B. Hospital on 22 November 2025.' },
+        { img: 'assets/Gallery/Events and Activities/event5.jpeg', title: 'Amrutham', caption: 'The "Amrutham – Mar Anthonios Memorial Food Distribution Programme" of the Thevalakkara Group was organised by the St. Gregorios Youth Movement of St. Mary\'s Salem Orthodox Syrian Church, Sooranad North, and held at Karunagappally Puthiyakavu T.B. Hospital on 22 November 2025.' },
         { img: 'assets/Gallery/Events and Activities/event1.jpg.jpeg', title: 'Parumala Padayathra', caption: 'Parumala Padayathra undertaken by the faithful on 31 October 2025.' },
-        
-        // Add more events...
     ],
     achievements: [
-        { img: 'assets/Gallery/Achievements/ach1.jpg', title: 'Overall Championship', caption: 'Our Samajam members secured first place with 65 points and won the Ever Rolling Trophy at the 2025 Kalamalsaram  of the Martha Mariam Vanitha Samajam, Thevalakkara Group, held at St. Gregorios Orthodox Church, Idakkulangara, on 05 October 2025.' },
+        { img: 'assets/Gallery/Achievements/ach1.jpg', title: 'Overall Championship', caption: 'Our Samajam members secured first place with 65 points and won the Ever Rolling Trophy at the 2025 Kalamalsaram of the Martha Mariam Vanitha Samajam, Thevalakkara Group, held at St. Gregorios Orthodox Church, Idakkulangara, on 05 October 2025.' },
         { img: 'assets/Gallery/Achievements/ach2.jpeg', title: 'Youth Achievement', caption: 'Our members of the youth movement won the Overall Championship with 72 points at Arangu 2025, the Kollam Diocese Youth Arts Festival.' },
-        
-        // Add more achievements...
     ],
     church_images: [
         { img: 'assets/churchmain.jpg', title: 'Our Church', caption: 'Recreated > 2011' },
@@ -334,16 +275,13 @@ const galleryData = {
         { img: 'assets/Gallery/Church_images/madbaha.jpg', title: 'Madbaha', caption: 'The Holy Madbaha, the most sacred space of the church where the Holy Qurbana is celebrated.' },
         { img: 'assets/Gallery/Church_images/chur3.jpeg', title: 'Old Church', caption: 'Constructed > 1968-1969' },
         { img: 'assets/Gallery/Church_images/rec.jpg', title: 'Record of Church Consecration', caption: '' },
-        // Add more programmes...
     ],
     Kurishady: [
-        { img: 'assets/Gallery/Kurisady/kurisady1.png', title: 'Kurishady at Western side', caption:''},
-        { img: 'assets/Gallery/Kurisady/kurisady2.jpg', title: 'Kurishady within Church premise', caption:'' },
-        { img: 'assets/Gallery/Kurisady/kurisady3.png', title: 'Kurishady at Eastern side', caption:''},
-        { img: 'assets/Gallery/Kurisady/kurisady5.jpeg', title: 'Newly Constructed Kurishady near the Church', caption:''},
-        { img: 'assets/Gallery/Kurisady/kurisady4.jpeg', title: 'Newly Constructed Kurishady at Eastern side', caption:''},
-        
-        // Add more meetings...
+        { img: 'assets/Gallery/Kurisady/kurisady1.png', title: 'Kurishady at Western side', caption: '' },
+        { img: 'assets/Gallery/Kurisady/kurisady2.jpg', title: 'Kurishady within Church premise', caption: '' },
+        { img: 'assets/Gallery/Kurisady/kurisady3.png', title: 'Kurishady at Eastern side', caption: '' },
+        { img: 'assets/Gallery/Kurisady/kurisady5.jpeg', title: 'Newly Constructed Kurishady near the Church', caption: '' },
+        { img: 'assets/Gallery/Kurisady/kurisady4.jpeg', title: 'Newly Constructed Kurishady at Eastern side', caption: '' },
     ],
     PalliPerunnal: [
         { img: 'assets/Gallery/Palli Perunnal/per1.jpeg', title: '', caption: '' },
@@ -354,13 +292,6 @@ const galleryData = {
         { img: 'assets/Gallery/Palli Perunnal/per6.jpeg', title: '', caption: '' },
         { img: 'assets/Gallery/Palli Perunnal/per7.jpeg', title: '', caption: '' },
         { img: 'assets/Gallery/Palli Perunnal/per8.jpeg', title: '', caption: '' },
-        // Add more trips...
-    ],
-    services: [
-        { img: 'images/gallery/services/1.jpg', title: 'Holy Qurbana', caption: 'Sunday divine liturgy' },
-        { img: 'images/gallery/services/2.jpg', title: 'Evening Prayer', caption: 'Saturday evening service' },
-        { img: 'images/gallery/services/3.jpg', title: 'Special Service', caption: 'Feast day divine service' },
-        // Add more services...
     ]
 };
 
@@ -369,13 +300,12 @@ const categoryTitles = {
     achievements: 'Achievements',
     church_images: 'Church Images',
     Kurishady: 'Kurishady',
-    PalliPerunnal: 'Palli Perunnal',
-    services: 'Church Services'
+    PalliPerunnal: 'Palli Perunnal'
 };
 
-// Open subgallery
+// Open subgallery on category click
 document.querySelectorAll('.gallery-category').forEach(category => {
-    category.addEventListener('click', function() {
+    category.addEventListener('click', function () {
         const categoryType = this.getAttribute('data-category');
         openSubgallery(categoryType);
     });
@@ -383,17 +313,17 @@ document.querySelectorAll('.gallery-category').forEach(category => {
 
 function openSubgallery(category) {
     const images = galleryData[category];
-    const categoryTitle = categoryTitles[category];
-    
-    // Create modal
+    if (!images) return;
+    const categoryTitle = categoryTitles[category] || category;
+
     const modal = document.createElement('div');
     modal.className = 'subgallery-modal';
-    
+
     let imagesHTML = '';
     images.forEach(item => {
         imagesHTML += `
             <div class="subgallery-item" data-img="${item.img}">
-                <img src="${item.img}" alt="${item.title}">
+                <img src="${item.img}" alt="${item.title}" loading="lazy">
                 <div class="subgallery-item-overlay">
                     <i class="fas fa-search-plus"></i>
                 </div>
@@ -404,7 +334,7 @@ function openSubgallery(category) {
             </div>
         `;
     });
-    
+
     modal.innerHTML = `
         <div class="subgallery-container">
             <div class="subgallery-header">
@@ -417,44 +347,42 @@ function openSubgallery(category) {
             </div>
         </div>
     `;
-    
+
     document.body.appendChild(modal);
     document.body.style.overflow = 'hidden';
-    
+
     setTimeout(() => {
         modal.classList.add('active');
     }, 10);
-    
-    // Close modal
+
     modal.querySelector('.subgallery-close').addEventListener('click', closeSubgallery);
     modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            closeSubgallery();
-        }
+        if (e.target === modal) closeSubgallery();
     });
-    
-    // Open lightbox for individual images
+
     modal.querySelectorAll('.subgallery-item').forEach(item => {
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function () {
             const imgSrc = this.getAttribute('data-img');
             const title = this.querySelector('h4').textContent;
             const caption = this.querySelector('.subgallery-caption p').textContent;
             openLightbox(imgSrc, title, caption);
         });
     });
-    
+
     function closeSubgallery() {
         modal.classList.remove('active');
         setTimeout(() => {
-            document.body.removeChild(modal);
+            if (document.body.contains(modal)) {
+                document.body.removeChild(modal);
+            }
             document.body.style.overflow = 'auto';
         }, 300);
     }
-    
-    // ESC key to close
-    document.addEventListener('keydown', function(e) {
+
+    document.addEventListener('keydown', function escHandler(e) {
         if (e.key === 'Escape') {
             closeSubgallery();
+            document.removeEventListener('keydown', escHandler);
         }
     });
 }
@@ -472,21 +400,13 @@ function openLightbox(imgSrc, title, caption) {
             </div>
         </div>
     `;
-    
+
     document.body.appendChild(lightbox);
-    
+
     setTimeout(() => {
         lightbox.style.opacity = '1';
     }, 10);
-    
-    const closeBtn = lightbox.querySelector('.lightbox-close');
-    closeBtn.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
-            closeLightbox();
-        }
-    });
-    
+
     function closeLightbox() {
         lightbox.style.opacity = '0';
         setTimeout(() => {
@@ -495,26 +415,28 @@ function openLightbox(imgSrc, title, caption) {
             }
         }, 300);
     }
-}
 
+    lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
 
-// ===== MOBILE TOUCH IMPROVEMENTS FOR GALLERY =====
-if ('ontouchstart' in window) {
-    // Prevent double-tap zoom on gallery items
-    document.querySelectorAll('.gallery-category, .subgallery-item').forEach(item => {
-        item.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            this.click();
-        }, { passive: false });
+    document.addEventListener('keydown', function escLightbox(e) {
+        if (e.key === 'Escape') {
+            closeLightbox();
+            document.removeEventListener('keydown', escLightbox);
+        }
     });
 }
 
-// Smooth scroll prevention when modal is open
-function preventScroll(e) {
-    e.preventDefault();
-}
+// BUG FIX 7: The original touch handler called e.preventDefault() then this.click(),
+// which fired the click twice on gallery items (once from touchend→click() call,
+// once from the browser's own synthetic click after touchend). This opened two
+// modals stacked on top of each other. Fixed by removing the manual touch handler
+// entirely — modern browsers fire click after touchend automatically, so this block
+// was always redundant and harmful.
 
-// Apply to modals
+// ===== MODAL BODY SCROLL LOCK =====
 document.addEventListener('DOMContentLoaded', () => {
     const observeModals = new MutationObserver(() => {
         const modals = document.querySelectorAll('.subgallery-modal.active, .lightbox');
@@ -526,150 +448,109 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.width = '';
         }
     });
-    
     observeModals.observe(document.body, { childList: true, subtree: true });
 });
 
-// ===== SIMPLE EVENTS SLIDER =====
-document.addEventListener('DOMContentLoaded', function() {
+// ===== EVENTS SLIDER =====
+document.addEventListener('DOMContentLoaded', function () {
     const eventSlides = document.querySelectorAll('.event-slide');
     const sliderIndicators = document.querySelector('.slider-indicators');
     const prevButton = document.querySelector('.prev-btn');
     const nextButton = document.querySelector('.next-btn');
 
-    if (eventSlides && eventSlides.length > 0 && sliderIndicators) {
-        let currentSlide = 0;
-        const totalSlides = eventSlides.length;
-        let autoSlide;
+    if (!eventSlides.length || !sliderIndicators) return;
 
-        // Create indicator dots
-        eventSlides.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.className = 'indicator-dot';
-            if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(index));
-            sliderIndicators.appendChild(dot);
-        });
+    let currentSlide = 0;
+    const totalSlides = eventSlides.length;
+    let autoSlide;
 
-        const dots = document.querySelectorAll('.indicator-dot');
+    // Create indicator dots
+    eventSlides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.className = 'indicator-dot';
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        sliderIndicators.appendChild(dot);
+    });
 
-        function showSlide(n) {
-            // Wrap around
-            if (n >= totalSlides) {
-                currentSlide = 0;
-            } else if (n < 0) {
-                currentSlide = totalSlides - 1;
-            } else {
-                currentSlide = n;
-            }
+    const dots = document.querySelectorAll('.indicator-dot');
 
-            // Remove active class from all
-            eventSlides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-
-            // Add active class to current
-            eventSlides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
+    function showSlide(n) {
+        if (n >= totalSlides) {
+            currentSlide = 0;
+        } else if (n < 0) {
+            currentSlide = totalSlides - 1;
+        } else {
+            currentSlide = n;
         }
 
-        function nextSlide() {
-            showSlide(currentSlide + 1);
-        }
+        eventSlides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
 
-        function prevSlide() {
-            showSlide(currentSlide - 1);
-        }
-
-        function goToSlide(n) {
-            showSlide(n);
-            resetAutoSlide();
-        }
-
-        function startAutoSlide() {
-            autoSlide = setInterval(nextSlide, 5000);
-        }
-
-        function stopAutoSlide() {
-            clearInterval(autoSlide);
-        }
-
-        function resetAutoSlide() {
-            stopAutoSlide();
-            startAutoSlide();
-        }
-
-        // Button events
-        if (nextButton) {
-            nextButton.addEventListener('click', () => {
-                nextSlide();
-                resetAutoSlide();
-            });
-        }
-
-        if (prevButton) {
-            prevButton.addEventListener('click', () => {
-                prevSlide();
-                resetAutoSlide();
-            });
-        }
-
-        // Pause on hover
-        const sliderContainer = document.querySelector('.events-slider-container');
-        if (sliderContainer) {
-            sliderContainer.addEventListener('mouseenter', stopAutoSlide);
-            sliderContainer.addEventListener('mouseleave', startAutoSlide);
-        }
-
-        // Touch/Swipe support for mobile
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        const slider = document.querySelector('.events-slider');
-        
-        if (slider) {
-            slider.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-            }, { passive: true });
-
-            slider.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
-            }, { passive: true });
-        }
-
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            if (touchStartX - touchEndX > swipeThreshold) {
-                // Swipe left - next slide
-                nextSlide();
-                resetAutoSlide();
-            } else if (touchEndX - touchStartX > swipeThreshold) {
-                // Swipe right - previous slide
-                prevSlide();
-                resetAutoSlide();
-            }
-        }
-
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') {
-                prevSlide();
-                resetAutoSlide();
-            } else if (e.key === 'ArrowRight') {
-                nextSlide();
-                resetAutoSlide();
-            }
-        });
-
-        // Initialize
-        showSlide(0);
-        startAutoSlide();
-
-        console.log('Events Slider initialized with', totalSlides, 'slides');
-    } else {
-        console.log('Events Slider not found or no slides available');
+        eventSlides[currentSlide].classList.add('active');
+        dots[currentSlide].classList.add('active');
     }
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function prevSlide() { showSlide(currentSlide - 1); }
+
+    function goToSlide(n) {
+        showSlide(n);
+        resetAutoSlide();
+    }
+
+    function startAutoSlide() {
+        autoSlide = setInterval(nextSlide, 5000);
+    }
+
+    function stopAutoSlide() {
+        clearInterval(autoSlide);
+    }
+
+    function resetAutoSlide() {
+        stopAutoSlide();
+        startAutoSlide();
+    }
+
+    if (nextButton) nextButton.addEventListener('click', () => { nextSlide(); resetAutoSlide(); });
+    if (prevButton) prevButton.addEventListener('click', () => { prevSlide(); resetAutoSlide(); });
+
+    const sliderContainer = document.querySelector('.events-slider-container');
+    if (sliderContainer) {
+        sliderContainer.addEventListener('mouseenter', stopAutoSlide);
+        sliderContainer.addEventListener('mouseleave', startAutoSlide);
+    }
+
+    // Swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const slider = document.querySelector('.events-slider');
+
+    if (slider) {
+        slider.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        slider.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) { nextSlide(); } else { prevSlide(); }
+                resetAutoSlide();
+            }
+        }, { passive: true });
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') { prevSlide(); resetAutoSlide(); }
+        else if (e.key === 'ArrowRight') { nextSlide(); resetAutoSlide(); }
+    });
+
+    showSlide(0);
+    startAutoSlide();
 });
+
 // ===== CONSOLE MESSAGE =====
 console.log('%c🙏 St Mary\'s Salem Orthodox Syrian Church', 'color: #8B1538; font-size: 20px; font-weight: bold;');
 console.log('%cWebsite developed with love and devotion', 'color: #D4AF37; font-size: 14px;');
