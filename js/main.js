@@ -554,3 +554,42 @@ document.addEventListener('DOMContentLoaded', function () {
 // ===== CONSOLE MESSAGE =====
 console.log('%c🙏 St Mary\'s Salem Orthodox Syrian Church', 'color: #8B1538; font-size: 20px; font-weight: bold;');
 console.log('%cWebsite developed with love and devotion', 'color: #D4AF37; font-size: 14px;');
+// ===== HISTORY DOCUMENT IMAGES LIGHTBOX =====
+document.querySelectorAll('.history-doc-card').forEach(card => {
+    card.addEventListener('click', function() {
+        const img = this.querySelector('img');
+        const lightbox = document.createElement('div');
+        lightbox.className = 'lightbox';
+        lightbox.innerHTML = `
+            <div class="lightbox-content">
+                <span class="lightbox-close">&times;</span>
+                <img src="${img.src}" alt="${img.alt}">
+                <p class="lightbox-caption">Click on image to zoom. Use pinch to zoom on mobile.</p>
+            </div>
+        `;
+        document.body.appendChild(lightbox);
+        document.body.style.overflow = 'hidden';
+        
+        setTimeout(() => {
+            lightbox.style.opacity = '1';
+        }, 10);
+        
+        const closeBtn = lightbox.querySelector('.lightbox-close');
+        closeBtn.addEventListener('click', () => closeLightbox(lightbox));
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox(lightbox);
+            }
+        });
+    });
+});
+
+function closeLightbox(lightbox) {
+    lightbox.style.opacity = '0';
+    setTimeout(() => {
+        if (document.body.contains(lightbox)) {
+            document.body.removeChild(lightbox);
+        }
+        document.body.style.overflow = 'auto';
+    }, 300);
+}
