@@ -1426,6 +1426,245 @@ body {
     color: #FFD700;
 }
 
+
+/* ===== ANNOUNCEMENT BANNER ===== */
+.announcement-banner {
+    background: linear-gradient(135deg,#0f0c29 0%,
+    #302b63 50%,
+    #24243e 100%);
+    color: var(--cream);
+    padding: 12px 20px;
+    position: sticky;
+    top: 70px;
+    z-index: 999;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.announcement-banner.hidden {
+    display: none;
+}
+
+.announcement-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.announcement-icon {
+    color: var(--accent-gold);
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.announcement-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    text-align: center;
+}
+
+.announcement-text strong {
+    color: var(--accent-gold);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.announcement-text span {
+    font-size: 0.9rem;
+    color: var(--cream);
+    opacity: 0.9;
+}
+
+.announcement-view-btn {
+    background: var(--accent-gold);
+    color: var(--dark-red);
+    border: none;
+    padding: 8px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.announcement-view-btn:hover {
+    background: var(--white);
+    transform: scale(1.05);
+}
+
+.announcement-close {
+    background: transparent;
+    border: none;
+    color: var(--cream);
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 5px;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    opacity: 0.7;
+}
+
+.announcement-close:hover {
+    opacity: 1;
+    color: var(--accent-gold);
+    transform: rotate(90deg);
+}
+
+/* ===== PERUNNAL POSTER SECTION ===== */
+.perunnal-section {
+    background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+}
+
+.perunnal-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+    font-size: 1.15rem;
+    color: #555;
+    line-height: 1.8;
+    font-style: italic;
+}
+
+.poster-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.poster-card {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(139, 21, 56, 0.2);
+    cursor: pointer;
+    border: 4px solid var(--secondary-gold);
+    transition: var(--transition);
+}
+
+.poster-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(139, 21, 56, 0.3);
+}
+
+.poster-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.poster-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(139, 21, 56, 0.85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+    gap: 15px;
+}
+
+.poster-card:hover .poster-overlay {
+    opacity: 1;
+}
+
+.poster-overlay i {
+    font-size: 3rem;
+    color: var(--accent-gold);
+}
+
+.poster-overlay p {
+    color: var(--cream);
+    font-size: 1.1rem;
+}
+
+.perunnal-footer {
+    text-align: center;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.perunnal-footer p {
+    font-size: 1.1rem;
+    color: var(--primary-burgundy);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.perunnal-footer i {
+    color: var(--secondary-gold);
+    font-size: 1.2rem;
+}
+
+/* Responsive Poster Section */
+@media (max-width: 968px) {
+    .poster-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .announcement-content {
+        gap: 10px;
+    }
+    
+    .announcement-text strong {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .poster-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        max-width: 400px;
+    }
+
+    .announcement-content {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .announcement-text strong {
+        font-size: 0.95rem;
+    }
+
+    .announcement-text span {
+        font-size: 0.8rem;
+    }
+
+    .announcement-view-btn {
+        padding: 6px 15px;
+        font-size: 0.85rem;
+    }
+
+    .perunnal-footer p {
+        font-size: 1rem;
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 968px) {
     .hero {

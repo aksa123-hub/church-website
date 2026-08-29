@@ -4,6 +4,71 @@ document.addEventListener('DOMContentLoaded', () => {
     allAnimatedElements.forEach(el => {
         el.classList.add('visible');
     });
+
+
+    // ===== ANNOUNCEMENT BANNER =====
+const closeAnnouncementBtn = document.getElementById('closeAnnouncement');
+const announcementBanner = document.getElementById('announcementBanner');
+
+if (closeAnnouncementBtn && announcementBanner) {
+    closeAnnouncementBtn.addEventListener('click', () => {
+        announcementBanner.classList.add('hidden');
+    });
+}
+
+// ===== PERUNNAL POSTER LIGHTBOX =====
+document.querySelectorAll('.poster-card').forEach(card => {
+    card.addEventListener('click', function() {
+        const img = this.querySelector('.poster-img');
+        const lightbox = document.createElement('div');
+        lightbox.className = 'lightbox';
+        lightbox.innerHTML = `
+            <div class="lightbox-content">
+                <span class="lightbox-close">&times;</span>
+                <img src="${img.src}" alt="${img.alt}">
+                <div class="lightbox-caption">
+                    <p>${img.alt}</p>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(lightbox);
+        document.body.style.overflow = 'hidden';
+
+        setTimeout(() => {
+            lightbox.style.opacity = '1';
+        }, 10);
+
+        lightbox.querySelector('.lightbox-close').addEventListener('click', (e) => {
+            e.stopPropagation();
+            closePosterLightbox(lightbox);
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closePosterLightbox(lightbox);
+            }
+        });
+
+        document.addEventListener('keydown', function escClose(e) {
+            if (e.key === 'Escape') {
+                closePosterLightbox(lightbox);
+                document.removeEventListener('keydown', escClose);
+            }
+        });
+    });
+});
+
+function closePosterLightbox(lightbox) {
+    lightbox.style.opacity = '0';
+    setTimeout(() => {
+        if (document.body.contains(lightbox)) {
+            document.body.removeChild(lightbox);
+        }
+        document.body.style.overflow = 'auto';
+    }, 300);
+}
+
 });
 
 // ===== NAVIGATION SCROLL EFFECT =====
